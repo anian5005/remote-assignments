@@ -23,6 +23,8 @@ print(find_max([5, 2, 7, 1, 6]) ); # should print 7
 # In[3]:
 
 
+#V1
+
 def find_position(array, num):
     pos=-1
     target=num
@@ -38,14 +40,28 @@ def find_position(array, num):
         return pos
 
 
-# In[4]:
+# In[12]:
 
 
-#test
-print(find_position([5, 2, 7, 1, 6], 5)) # should print 0
-print(find_position([5, 2, 7, 1, 6], 7)) # should print 2
-print(find_position([5, 2, 7, 7, 7, 1, 6], 7)) # should print 2 (the first one)
-print(find_position([5, 2, 7, 1, 6], 8)) # should print -1
+#V2 #enumerate()
+
+def find_position_2(array, num):
+    pos=-1
+    for i,x in list(enumerate(array)):
+        if x == num:
+            pos=i;
+            break
+    return(pos)
+            
+
+
+# In[13]:
+
+
+print(find_position_2([5, 2, 7, 1, 6], 5)) # should print 0
+print(find_position_2([5, 2, 7, 1, 6], 7)) # should print 2
+print(find_position_2([5, 2, 7, 7, 7, 1, 6], 7)) # should print 2 (the first one)
+print(find_position_2([5, 2, 7, 1, 6], 8)) # should print -1
 
 
 # In[ ]:
