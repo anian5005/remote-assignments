@@ -47,7 +47,7 @@ def find_position(array, num):
 
 def find_position_2(array, num):
     pos=-1
-    for i,x in list(enumerate(array)):
+    for i,x in enumerate(array):
         if x == num:
             pos=i;
             break
