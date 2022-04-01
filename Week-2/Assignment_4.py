@@ -48,20 +48,37 @@ def count(input):
     print(count_list)
 
 
-# In[4]:
+# In[14]:
+
+
+#PART1 count  #v4 
+#defaultdict 建立 default值
+
+from collections import defaultdict
+
+def count(input):
+    count_list =defaultdict()
+    for i in input:
+        value = count_list.get(i,0)
+        count_list.update({i:value+1})
+    
+    return count_list
+
+
+# In[15]:
 
 
 #test
 
 input1 = ['a', 'b', 'c', 'a', 'c', 'a', 'x']
 
-count(input1)  # should print {'a': 3, 'b': 1, 'c': 2, 'x': 1}
+print(count(input1))  # should print {'a': 3, 'b': 1, 'c': 2, 'x': 1}
 
 
-# In[11]:
+# In[6]:
 
 
-#PART2 group_by_key
+#PART2 group_by_key #V1
 
 def get_key_list(input):
     key_list=[]
@@ -72,12 +89,39 @@ def get_key_list(input):
 def group_by_key(input):
     dif_list={}
     list = get_key_list(input)
+    print(list)
 
     for item in input:
         key = item[list[0]]
         value = item[list[1]]
         dif_list[key]=dif_list.get(key,0)+value
     return dif_list
+
+
+# In[13]:
+
+
+#PART2 group_by_key  #V2
+#defaultdict 建立 default值
+
+from collections import defaultdict
+
+def get_key_list(input):
+    key_list=[]
+    for w in input[0].keys():
+        key_list.append(w) 
+    return key_list
+
+def group_by_key(input):
+    list = get_key_list(input)
+    merge_list = defaultdict()
+    
+    for item in input:
+        key = item[list[0]]
+        value = item[list[1]]
+        new_value = merge_list.get(key,0) + value
+        merge_list.update({key:new_value})           
+    return merge_list
 
 
 # In[12]:
@@ -92,4 +136,9 @@ input2 = [
  {'key': 'a', 'value': 3},
  {'key': 'c', 'value': 5}
 ]
+
 print(group_by_key(input2))     # should print {‘a’: 6, ‘b’: 1, ‘c’: 7}
+
+
+
+
