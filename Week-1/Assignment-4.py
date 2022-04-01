@@ -113,9 +113,3 @@ print(binary_search_position([1, 2, 5, 6, 7], 6)) # should print 3
 
 # In[5]:
 
-
-#test
-numbers = [1, 2, 3, 4, 5 ,6]
-
-numbers[2:] #起始位置 : 最後位置+1
-
