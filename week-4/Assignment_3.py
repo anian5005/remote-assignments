@@ -38,19 +38,22 @@ def login():
 def signup():
     email = request.form["email"] #user input data from sign-up form
     password = request.form["password"]
-    result = add.add_user(email,password) #add model: if new email then add it to database
+    check_result = check.check_user(email,password)
+    add_result = add.add_user(email,password) #add model: if new email then add it to database
 
-    if result == "Added":
-        flash("Sign-up Successfully.")
-        return redirect(url_for('member'))
-
-    elif result == "ISmember": 
+    if check_result == "ISmember":
         flash('Account already exists, please sign in!')
         return redirect(url_for('index'))
 
-    else:
-        flash('Sign-up Failed,plaease try again!')
-        return render_template("home.html")
+    elif check_result == None:
+
+        if add_result == "Added":
+            flash("Sign-up Successfully.")
+            return redirect(url_for('member'))
+
+        else:
+            flash('Sign-up Failed,plaease try again!')
+            return render_template("home.html")
 
 
 @app.route('/member' )
