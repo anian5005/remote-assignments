@@ -39,13 +39,14 @@ def signup():
     email = request.form["email"] #user input data from sign-up form
     password = request.form["password"]
     check_result = check.check_user(email,password)
-    add_result = add.add_user(email,password) #add model: if new email then add it to database
-
+    
     if check_result == "ISmember":
         flash('Account already exists, please sign in!')
         return redirect(url_for('index'))
+    
+    else:
+        add_result = add.add_user(email,password) #add model: if new email then add it to database
 
-    elif check_result == None:
 
         if add_result == "Added":
             flash("Sign-up Successfully.")
