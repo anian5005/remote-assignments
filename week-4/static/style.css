@@ -1,0 +1,28 @@
+body {
+    margin: 5% 32%;
+    background-color: #EB7760;
+}
+
+h1 {
+    color: whitesmoke;
+}
+
+li {
+    color: whitesmoke;
+    font-size: 25px;
+}
+
+button {
+    border: 0;
+    background-color: #003C9D;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+button:hover {
+    color: #003C9D;
+    background-color: #fff;
+    border: 2px #003C9D solid;
+}
